@@ -67,6 +67,7 @@ COPY --from=build-core customer-core/target/customer-core-0.0.1-SNAPSHOT.jar .
 EXPOSE 80 8110 8100
 
 ADD root-entrypoint.sh /var/root-entrypoint.sh
+RUN chmod +x /var/root-entrypoint.sh
 ENTRYPOINT ["/var/root-entrypoint.sh"]
 
 CMD ["nginx", "-g", "daemon off;"]
