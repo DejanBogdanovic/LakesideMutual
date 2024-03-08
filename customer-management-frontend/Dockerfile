@@ -7,7 +7,7 @@ COPY . ./
 RUN npm run build
 
 FROM nginx:stable-alpine
-COPY nginx.vh.default.conf /etc/nginx/conf.d/default.conf
+# COPY nginx.vh.default.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
 EXPOSE 80
 WORKDIR /usr/share/nginx/html
@@ -19,5 +19,5 @@ ADD entrypoint.sh /var/entrypoint.sh
 ENV REACT_APP_CUSTOMER_MANAGEMENT_BACKEND https://lakesidemutual-production.up.railway.app
 ENTRYPOINT ["/var/entrypoint.sh"]
 
-CMD ["nginx"]
+# CMD ["nginx"]
 # CMD ["nginx", "-g", "daemon off;"]
