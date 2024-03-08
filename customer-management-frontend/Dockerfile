@@ -16,6 +16,7 @@ RUN apk add --no-cache nodejs npm
 RUN npm install -g @beam-australia/react-env@3.1.1
 ADD .env ./
 ADD entrypoint.sh /var/entrypoint.sh
+ENV REACT_APP_CUSTOMER_MANAGEMENT_BACKEND https://lakesidemutual-production.up.railway.app
 ENTRYPOINT ["/var/entrypoint.sh"]
 
 CMD ["nginx", "-g", "daemon off;"]

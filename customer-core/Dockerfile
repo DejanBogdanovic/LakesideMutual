@@ -13,7 +13,7 @@ RUN ./mvnw -B package
 FROM openjdk:17-slim-buster
 
 COPY --from=build target/customer-core-0.0.1-SNAPSHOT.jar .
-
+ENV CUSTOMERCORE_BASEURL genial-key-production.up.railway.app
 EXPOSE 8110
 
 ENTRYPOINT ["java", "-jar", "customer-core-0.0.1-SNAPSHOT.jar"]
