@@ -51,9 +51,9 @@ RUN npm install -g @beam-australia/react-env@3.1.1
 ADD customer-management-frontend/.env ./
 ADD customer-management-frontend/entrypoint.sh /var/entrypoint.sh
 
-ENV SPRING_BOOT_ADMIN_CLIENT_URL https://lakesidemutual-production.up.railway.app:9000
-ENV CUSTOMERCORE_BASEURL https://lakesidemutual-production.up.railway.app:8110
-ENV REACT_APP_CUSTOMER_MANAGEMENT_BACKEND https://lakesidemutual-production.up.railway.app:8100
+# ENV SPRING_BOOT_ADMIN_CLIENT_URL https://lakesidemutual-production.up.railway.app:9000
+# ENV CUSTOMERCORE_BASEURL https://lakesidemutual-production.up.railway.app:8110
+# ENV REACT_APP_CUSTOMER_MANAGEMENT_BACKEND https://lakesidemutual-production.up.railway.app:8100
 
 COPY --from=build-backend customer-management-backend/target/customer-management-backend-0.0.1-SNAPSHOT.jar .
 COPY --from=build-core customer-core/target/customer-core-0.0.1-SNAPSHOT.jar .
